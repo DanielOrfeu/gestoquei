@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "448330718274",
+    "project_id": "gestoquei",
+    "storage_bucket": "gestoquei.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448330718274:android:b58a455b6431bd178ea1db",
+        "android_client_info": {
+          "package_name": "com.gestoquei"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448330718274-4hqo83p5m3q16sn45ukc6fg5psmkaaro.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gestoquei",
+            "certificate_hash": "ae6db471a5330b04d26884b750b702f39d06e407"
+          }
+        },
+        {
+          "client_id": "448330718274-2darjh0e56kjsn9kpan68idiv9tbac4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcFFd_Twob-HjAtzEYCnJ2tvyBS0PobeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448330718274-2darjh0e56kjsn9kpan68idiv9tbac4f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "448330718274-6ro7d23b8hdn39vbf12kn0lhv42cck07.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gestoquei"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
