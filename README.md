@@ -8,8 +8,6 @@ Aplicativo android e ios. Em breve disponível nas respectivas lojas.
 
 ### Requisitos de desenvolvimento
 
-The things you need before installing the software.
-
 * Ambiente configurado para desenvolvimento mobile 
 * Node@16 ou maior instalado
 
