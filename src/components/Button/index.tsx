@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode, useState } from 'react'
 import { Button } from 'tamagui'
-import { LogIn, LogOut, Trash2, UserPlus } from '@tamagui/lucide-icons'
+import { ArrowBigLeft, LogIn, LogOut, Trash2, UserPlus } from '@tamagui/lucide-icons'
 
 interface OwnProps {
     text: string
@@ -18,7 +18,8 @@ export default function ActionBtn(props: Props){
         'login': LogIn,
         'logout': LogOut,
         'delete': Trash2,
-        'signup': UserPlus
+        'signup': UserPlus,
+        'back': ArrowBigLeft
     });
 
     return (

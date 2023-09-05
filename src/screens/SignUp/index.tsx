@@ -1,15 +1,27 @@
 
 import { useEffect, useState } from 'react'
-import { Button, Form, H1, H4, Text, YStack } from 'tamagui'
+import { Button, Form, H1, H4, Spinner, Text, YStack } from 'tamagui'
 import { LogIn } from '@tamagui/lucide-icons'
 import { Alert, TouchableOpacity } from 'react-native'
 import ActionBtn from '../../components/Button'
 import FormInput from '../../components/FormInput'
 import UserService from '../../services/User/index'
+import { useNavigation } from '@react-navigation/native'
+import { AuthErrorTypes } from '../../types'
 
 export default function SignUp() {
-    const [email, setemail] = useState();
-    const [password, setpassword] = useState();
+    const navigation =  useNavigation()
+
+    const [email, setemail] = useState()
+    const [password, setpassword] = useState()
+    const [confirmPassword, setconfirmPassword] = useState()
+    const [loading, setloading] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (navigation.getState().routes[1]?.params?.email){
+            setemail(navigation.getState().routes[1]?.params?.email)
+        }
+    }, []);
 
     return (
         <YStack f={1} w={'100%'} jc="center" ai="center" bg="#0085FF" gap={20}>
@@ -40,15 +52,49 @@ export default function SignUp() {
                         setpassword(t)
                     }}
                 />
+                <FormInput 
+                    isPassword
+                    ph={'Confirme sua senha'} 
+                    value={confirmPassword} 
+                    handleChangeText={(t) => {
+                        setconfirmPassword(t)
+                    }}
+                />
                 <Form.Trigger gap={8}>
-                    <ActionBtn 
-                        text={'Criar conta'} 
-                        btnColor={'#04C900'}
-                        action={'signup'}
-                        handlePress={async () => {
-                            await UserService.SignUp(email, password)
-                        }}
-                    />
+                    {
+                        loading
+                        ? <Spinner
+                            size='large'
+                            color='#0085FF'
+                        />
+                        : <>
+                            <ActionBtn 
+                                disabled={!(email && password && confirmPassword)}
+                                text={'Criar conta'} 
+                                btnColor={'#04C900'}
+                                action={'signup'}
+                                handlePress={async () => {
+                                    setloading(true)
+                                    await UserService.SignUp(email, password, confirmPassword)
+                                    .then((res) => {
+                                        Alert.alert('Usuário cadastrado com sucesso', `${JSON.stringify(user)}`)
+                                    })
+                                    .catch((err) => {
+                                        Alert.alert('Erro ao criar usuário!', AuthErrorTypes[err.code] || err.code || {err})
+                                        setloading(false)
+                                    })
+                                }}
+                            />
+                            <ActionBtn 
+                                text={'Voltar'} 
+                                btnColor={'grey'}
+                                action={'back'}
+                                handlePress={() => {
+                                    navigation.goBack()
+                                }}
+                            />
+                        </>
+                    }
                 </Form.Trigger>
             </Form>
         </YStack>
