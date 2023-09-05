@@ -76,8 +76,8 @@ export default function SignUp() {
                                 handlePress={async () => {
                                     setloading(true)
                                     await UserService.SignUp(email, password, confirmPassword)
-                                    .then((res) => {
-                                        Alert.alert('Usuário cadastrado com sucesso', `${JSON.stringify(user)}`)
+                                    .then((_) => {
+                                        Alert.alert('','Usuário cadastrado com sucesso')
                                     })
                                     .catch((err) => {
                                         Alert.alert('Erro ao criar usuário!', AuthErrorTypes[err.code] || err.code || {err})

@@ -21,10 +21,15 @@ export default class UserService {
         }
     }
 
-    // static async ForgotPassword(email){
-    //     auth()
-    //     .sendPasswordResetEmail(email)
-    // }
+    static async ForgotPassword(email){
+        return auth()
+        .sendPasswordResetEmail(email)
+    }
+
+    static async Logout(){
+        return auth()
+        .signOut()
+    }
 }
 
 

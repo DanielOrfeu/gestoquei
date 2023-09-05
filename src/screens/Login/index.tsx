@@ -48,8 +48,20 @@ export default function Login() {
                         }}
                     />
                     <TouchableOpacity
-                        onPress={() => {
-                            Alert.alert('test')
+                        disabled={!email}
+                        onPress={async () => {
+                            setloading(true)
+                            await UserService.ForgotPassword(email)
+                            .then((res) => {
+                                Alert.alert('Sucesso!', `Foi enviado um e-mail para ${email} com instruções para criar uma nova senha`)
+                            })
+                            .catch((err) => {
+                                setloading(false)
+                                Alert.alert('Erro ao resetar senha!', AuthErrorTypes[err.code] || err.code)
+                            })
+                            .finally(() => {
+                                setloading(false)
+                            })
                         }}
                     >
                         <Text

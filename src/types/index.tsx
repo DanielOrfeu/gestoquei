@@ -53,7 +53,7 @@ export enum AuthErrorTypes {
     'auth/too-many-requests' = 'O número de solicitações excede o máximo permitido.',
     'auth/uid-already-exists' = 'O uid fornecido já está sendo usado por um usuário existente. É necessário que cada usuário tenha um uid exclusivo.',
     'auth/unauthorized-continue-uri' = 'O domínio da URL de confirmação não está na lista de permissões. Acesse o Console do Firebase para colocar o domínio na lista de permissões.',
-    'auth/user-not-found' = 'Não há registro de usuário existente correspondente ao identificador fornecido.',
+    'auth/user-not-found' = 'Não foi encontrado nenhum usuário cadastrado com o e-mail informado',
     'auth/wrong-password' =  'A senha está inválida, ou o usuário não possui uma senha cadastrada',
     'auth/weak-password' = 'A senha deve conter ao menos 6 caracteres',
     'auth/email-already-in-use' = 'O e-mail informado já está cadastrado',
