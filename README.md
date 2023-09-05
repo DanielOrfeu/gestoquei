@@ -20,7 +20,7 @@ Guia rápido para execução local do projeto, usando um dispositivo virtual ou 
 cd gestoquei
 yarn install
 yarn prebuild
-yarn dev
+yarn android (ou ios)
 ```
 
 #### Com NPM:
@@ -28,7 +28,7 @@ yarn dev
 cd gestoquei
 npm i
 npm prebuild
-npm dev
+npm android (ou ios)
 ```
 
 ### Dependências usadas
@@ -38,4 +38,5 @@ npm dev
 * Expo
 * Styled Components
 * Zustand
+* Tamagui UI
 * entre outras..

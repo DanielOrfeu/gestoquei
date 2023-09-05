@@ -15,11 +15,11 @@
       "**/*"
     ],
     "ios": {
-      "googleServicesFile": "./src/config/GoogleService-Info.plist",
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./src/config/google-services.json",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

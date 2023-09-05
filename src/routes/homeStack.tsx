@@ -1,7 +1,7 @@
-import { FontAwesome5} from '@expo/vector-icons'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Profile from '../screens/Profile';
-import Orders from '../screens/Orders';
+import { FontAwesome5 } from '@expo/vector-icons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Profile from '../screens/Profile'
+import Orders from '../screens/Orders'
 
 const Tab = createBottomTabNavigator();
 

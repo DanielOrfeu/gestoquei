@@ -7,13 +7,12 @@ import ActionBtn from '../../components/Button'
 import FormInput from '../../components/FormInput'
 import UserService from '../../services/User/index'
 
-export default function Login() {
+export default function SignUp() {
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
 
     return (
         <YStack f={1} w={'100%'} jc="center" ai="center" bg="#0085FF" gap={20}>
-            <H1>Gestoquei</H1>
               <Form
                 alignItems="center"
                 w={'85%'}
@@ -25,7 +24,7 @@ export default function Login() {
                 padding="$6"
                 gap={20}
               >
-                <H4 color={"#0085FF"}>Área de Login</H4>
+                <H4 color={"#0085FF"}>Área de Cadastro</H4>
                 <FormInput 
                     ph={'Seu email'} 
                     value={email} 
@@ -33,43 +32,21 @@ export default function Login() {
                         setemail(t)
                     }}
                 />
-                <YStack>
-                    <FormInput 
-                        isPassword
-                        ph={'Sua senha'} 
-                        value={password} 
-                        handleChangeText={(t) => {
-                            setpassword(t)
-                        }}
-                    />
-                    <TouchableOpacity
-                        onPress={() => {
-                            Alert.alert('test')
-                        }}
-                    >
-                        <Text
-                        color={'#0085FF'}
-                        >
-                            Esqueceu a senha?
-                        </Text>
-                    </TouchableOpacity>
-                </YStack>
+                <FormInput 
+                    isPassword
+                    ph={'Sua senha'} 
+                    value={password} 
+                    handleChangeText={(t) => {
+                        setpassword(t)
+                    }}
+                />
                 <Form.Trigger gap={8}>
-                    <ActionBtn 
-                        disabled={!(email && password)}
-                        text={'Entrar'} 
-                        btnColor={'#0085FF'}
-                        action={'login'}
-                        handlePress={async () => {
-                            await UserService.Login(email, password)
-                        }}
-                    />
                     <ActionBtn 
                         text={'Criar conta'} 
                         btnColor={'#04C900'}
                         action={'signup'}
-                        handlePress={() => {
-                            Alert.alert('Info', 'Tela/função não implementada')
+                        handlePress={async () => {
+                            await UserService.SignUp(email, password)
                         }}
                     />
                 </Form.Trigger>
