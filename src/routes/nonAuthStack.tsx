@@ -11,9 +11,9 @@ export default function NonAuthStack() {
             <Screen options={{
                 headerShown: false  
             }}
-                name='Login' component={Home}
+                name='Home' component={Home}
             />
-            {/* <Screen options={{
+            <Screen options={{
                 headerShown: false  
             }}
                 name='Login' component={Login}
@@ -22,7 +22,7 @@ export default function NonAuthStack() {
                 headerShown: false  
             }}
                 name='SignUp' component={SignUp}
-            /> */}
+            />
         </Navigator>
     )
 }

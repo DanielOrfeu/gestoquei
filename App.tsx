@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
-import { Text, View, useColorScheme } from 'react-native'
+import { SafeAreaView, Text, View, useColorScheme } from 'react-native'
 import { 
   useFonts, 
   Poppins_300Light, 
@@ -40,8 +40,8 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider className='bg-slate-200 flex flex-1 w-full'>
+    <SafeAreaView className='bg-slate-200 flex flex-1 w-full'>
       <Routes/>
-    </SafeAreaProvider>
+    </SafeAreaView>
   )
 }

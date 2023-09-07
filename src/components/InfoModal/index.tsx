@@ -23,7 +23,8 @@ export default function InfoModal(props: Props) {
             <View className="f-1 justify-center items-center mt-22">
                 <View className="m-20 bg-white rounded-lg p-35 items-center shadow-cyan-500 ring-offset-purple-800">
                     <Text>oi</Text>
-                    <ActionBtn text={"OK"} 
+                    <ActionBtn text={"OK"}
+                         
                         handlePress={() => {
                             props.closeModal()
                         }} 

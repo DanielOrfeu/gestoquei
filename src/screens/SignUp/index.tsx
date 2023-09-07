@@ -101,15 +101,25 @@
 //     );
 // }
 
-import { Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 
 export default function SignUp() {
+    const navigation =  useNavigation<any>()
+
     return (
-        <View className="bg-slate-500 flex-1 w-full">
+        <View className="flex-1 w-full items-center justify-center">
             <Text>
                 SignUp component
             </Text>
+        <TouchableOpacity
+            onPress={() => {
+              navigation.goBack()
+            }}
+        >
+            <Text>voltar</Text>
+        </TouchableOpacity>
         </View>
     );
 }

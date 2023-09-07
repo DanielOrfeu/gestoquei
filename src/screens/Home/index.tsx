@@ -27,7 +27,7 @@ export default function Home() {
                     <Text className="text-white font-regular">Já possui conta?</Text>
                     <TouchableOpacity
                         onPress={() => {
-                            navigation.navigate('signUp')
+                            navigation.navigate('SignUp')
                         }}
                     >
                         <Text className='text-warning font-semibold ml-2'>Entrar</Text>
