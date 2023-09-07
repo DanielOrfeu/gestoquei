@@ -1,43 +1,44 @@
-
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
-import { useUserStore } from "../../store/UserStore";
-import { useEffect } from "react";
-import { Button, H3, Spacer, YStack } from 'tamagui'
-import ActionBtn from '../../components/Button';
-import UserService from '../../services/User';
-import { Alert } from 'react-native';
+import { Alert, Text, TouchableOpacity, View } from "react-native";
+import ActionBtn from "../../components/Button";
+import InfoModal from "../../components/InfoModal";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function Home() {
-    const [user] = useUserStore((state) => [
-      state.user
-    ])
-
+    const navigation =  useNavigation<any>()
+    const [openModal, setopenModal] = useState<boolean>(false);
+    
     return (
-        <YStack
-          f={1}
-          p={18}
-        >
-          <H3
-            color={'black'}
-          >
-            Olá, {user.displayName || user.email}
-          </H3>
-          <Spacer f={0.2}/>
-          <ActionBtn 
-            text={'Sair'} 
-            action={'logout'}
-            btnColor={'#0085FF'} 
-            handlePress={async () => {
-              await UserService.Logout()
-              .then((res) => {
-                Alert.alert('', 'Usuário saiu com sucesso')
-              })
-              .catch((err) => {
-                Alert.alert('', 'Erro ao sair do sistema')
-              })
-            }}
-          />
-        </YStack>
-    );
+        <View className="flex flex-1 w-full items-center justify-center bg-primary p-4 py-10">
+            <Text className="text-4xl text-white font-regular">
+                Gestoquei
+            </Text>         
+            <View className="flex-1"/>      
+                <ActionBtn 
+                    text={"Cadastre-se"} 
+                    type={"success"} 
+                    full
+                    handlePress={() => {
+                        setopenModal(true)
+                    }}
+                />
+                <View className="flex-row p-2 mt-2 items-center justify-center">
+                    <Text className="text-white font-regular">Já possui conta?</Text>
+                    <TouchableOpacity
+                        onPress={() => {
+                            navigation.navigate('signUp')
+                        }}
+                    >
+                        <Text className='text-warning font-semibold ml-2'>Entrar</Text>
+                    </TouchableOpacity>
+                </View>
+                <InfoModal 
+                    isVisible={openModal}
+                    closeModal={() => {
+                        setopenModal(false)
+                    }}
+                />
+        </View>
+);
 }

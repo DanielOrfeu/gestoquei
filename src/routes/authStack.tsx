@@ -1,6 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack'
 
-import Home from '../screens/Home'
+import Main from '../screens/Main'
+import Orders from '../screens/Orders'
 
 const { Navigator, Screen } = createStackNavigator()
 
@@ -10,7 +11,7 @@ export default function AuthStack() {
             <Screen options={{
                 headerShown: false  
             }}
-                name='Login' component={Home}
+                name='Login' component={Orders}
             />
         </Navigator>
     )

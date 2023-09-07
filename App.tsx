@@ -1,21 +1,29 @@
 import 'react-native-gesture-handler'
-import { useEffect } from 'react'
-import { useColorScheme } from 'react-native'
-import { useFonts } from 'expo-font'
-import { TamaguiProvider, Text, Theme, YStack } from 'tamagui'
 import * as SplashScreen from 'expo-splash-screen'
-
+import { useEffect } from 'react'
+import { Text, View, useColorScheme } from 'react-native'
+import { 
+  useFonts, 
+  Poppins_300Light, 
+  Poppins_400Regular, 
+  Poppins_500Medium, 
+  Poppins_600SemiBold, 
+  Poppins_700Bold
+} from '@expo-google-fonts/poppins'
 import Routes from './src/routes'
-import config from './tamagui.config'
-import Login from './src/screens/Login'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import UserService from './src/services/User'
 
 export default function App() {
 
-  const colorScheme = useColorScheme()
+  // const colorScheme = useColorScheme()
 
   const [loaded] = useFonts({
-    Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
-    InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
+    Poppins_300Light, 
+    Poppins_400Regular, 
+    Poppins_500Medium, 
+    Poppins_600SemiBold, 
+    Poppins_700Bold
   })
 
   useEffect(() => {
@@ -32,10 +40,8 @@ export default function App() {
   }
 
   return (
-    <TamaguiProvider config={config}>
-      <Theme name={colorScheme !== 'dark' ? 'dark' : 'light'}>
-          <Routes/>
-      </Theme>
-    </TamaguiProvider>
+    <SafeAreaProvider className='bg-slate-200 flex flex-1 w-full'>
+      <Routes/>
+    </SafeAreaProvider>
   )
 }

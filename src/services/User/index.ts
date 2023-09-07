@@ -1,6 +1,6 @@
 import auth from '@react-native-firebase/auth'
 import { Alert } from 'react-native'
-import { AuthErrorTypes } from '../../types'
+import { AuthErrorTypes } from '../../@types'
 
 
 export default class UserService {

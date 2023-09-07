@@ -1,11 +1,12 @@
-import * as S from "./styles"
+import { Text, View } from "react-native";
+
 
 export default function Orders() {
     return (
-        <S.Container>
-            <S.Title>
-                Orders Page
-            </S.Title>
-        </S.Container>
+        <View className="bg-slate-500 flex-1 w-full">
+            <Text>
+                Orders component
+            </Text>
+        </View>
     );
 }

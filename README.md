@@ -38,5 +38,5 @@ npm android (ou ios)
 * Expo
 * Styled Components
 * Zustand
-* Tamagui UI
+* Nativewind
 * entre outras..

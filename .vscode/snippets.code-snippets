@@ -1,0 +1,37 @@
+{
+	"Create default function with tailwind": {
+		"scope": "typescriptreact",
+		"prefix": "twf",
+		"body": [
+			"import { Text, View } from \"react-native\";",
+			"\n",
+			"export default function $1() {",
+			"    return (",
+			"        <View className=\"bg-slate-500 flex-1 w-full\">",
+			"            <Text>",
+			"                $1 component",
+			"            </Text>",
+			"        </View>",
+			"    );",
+			"}"
+		],
+		"description": "Create default function with tailwind"
+	},
+	"Create default component with tailwind": {
+		"scope": "typescriptreact",
+		"prefix": "twc",
+		"body": [
+			"import {  } from \"react-native\";\n",
+			"interface OwnProps {",
+			"",
+			"}\n",
+			"type Props = OwnProps\n",
+			"export default function $1(props: Props) {",
+			"    return (\n",
+
+			"    );",
+			"}"
+		],
+		"description": "Create default component with tailwind"
+	},
+}
