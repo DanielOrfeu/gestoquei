@@ -1944,7 +1944,7 @@
 
 "@react-native-firebase/app@^18.3.2":
   version "18.3.2"
-  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-18.3.2.tgz"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-18.3.2.tgz#c08da9f01b3642c3f4c10832fbd078012f65e736"
   integrity sha512-2yX1PtpcVQirLDfnZiBU44vRr4jeIuvAf2oAAaf+/zBcDApU5cwPfyFoCCANfqR8W3w8zs9h9UyhRYdnksM4sQ==
   dependencies:
     opencollective-postinstall "^2.0.1"
@@ -1959,7 +1959,7 @@
 
 "@react-native-firebase/firestore@^18.3.2":
   version "18.3.2"
-  resolved "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-18.3.2.tgz"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-18.3.2.tgz#aa4d7914c63f5b19a41c2e7872751fce0fe19660"
   integrity sha512-5rMEC7r5dGzlumzpHXGfY1P2MTTAxc+bqlDDr1FecrkSq3rMQ9XH/ZOE4qiMpJc/cWoHh8t+slqrdJZ25ykLTg==
 
 "@react-native-google-signin/google-signin@^10.0.1":
@@ -6040,6 +6040,11 @@ react-native-gesture-handler@~2.12.0:
     invariant "^2.2.4"
     lodash "^4.17.21"
     prop-types "^15.7.2"
+
+react-native-heroicons@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-heroicons/-/react-native-heroicons-3.2.0.tgz#34852039e21099b5a864f7f9f9805c8735584e52"
+  integrity sha512-M5jlhReLBALrmeKIjH1qgF3OCNphfw8xKpRlHpX8OH4zgsC3L6+Lt+c4/hNxSbxUIN2+s8XC0eK/NZLku14IzA==
 
 react-native-reanimated@~3.3.0:
   version "3.3.0"

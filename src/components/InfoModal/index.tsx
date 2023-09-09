@@ -1,5 +1,5 @@
 import { View, Modal, Text, TouchableOpacity } from "react-native";
-import ActionBtn from "../Button";
+import ActionBtn from "../ActionBtn";
 
 interface OwnProps {
     isVisible: boolean
@@ -18,18 +18,18 @@ export default function InfoModal(props: Props) {
             onDismiss={() => {
                 props.closeModal()
             }}
-            
         >   
-            <View className="f-1 justify-center items-center mt-22">
-                <View className="m-20 bg-white rounded-lg p-35 items-center shadow-cyan-500 ring-offset-purple-800">
-                    <Text>oi</Text>
+            <View className="items-center justify-center flex-1">
+                <View className="border-pink-700 border-2 items-center justify-center">
+                    <Text>Info</Text>
                     <ActionBtn text={"OK"}
-                         
+                        color=""
                         handlePress={() => {
                             props.closeModal()
                         }} 
                     />
                 </View>
+ 
             </View>
         </Modal>
     );

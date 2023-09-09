@@ -12,9 +12,7 @@ module.exports = {
     extend: {
       colors: {
         'primary': '#0085FF',
-        'success': '#04C900',
-        'warning': '#fff700',
-        'danger': '#ff0000'
+        'secundary': '#04C900',
       },
       fontFamily: {
         light : 'Poppins_300Light', 

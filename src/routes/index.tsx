@@ -12,10 +12,11 @@ export default function Routes() {
     ])
 
     useEffect(() => {
-        const subscribe = auth().onAuthStateChanged(setUser)
+        const subscribe = auth().onUserChanged(setUser)
         return subscribe
     }, []);
     
+
     return (
         <NavigationContainer>
             {

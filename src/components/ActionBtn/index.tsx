@@ -39,12 +39,11 @@
 // }
 
 import { Text, TouchableOpacity, View } from "react-native"
-import { styled } from 'nativewind'
 
 interface OwnProps {
     full?: boolean
     text: string
-    type: string
+    color?: string
     disabled?: boolean
     handlePress(): void
 }
@@ -52,10 +51,17 @@ interface OwnProps {
 type Props = OwnProps
 
 export default function ActionBtn(props: Props) {
+    let customClass: string = ''
+    customClass = props.disabled 
+        ? 'bg-gray-500'
+        : props.color 
+            ? `${props.color}`
+            : 'bg-primary'
+
     return (
         <TouchableOpacity 
             disabled={props.disabled}
-            className={`bg-${props.disabled ? 'slate-500': props.type || 'primary'} rounded-2xl p-3 items-center justify-center w-${props.full ? 'full' : 'auto'}`}
+            className={`${customClass} rounded-2xl p-3 items-center justify-center w-${props.full ? 'full' : 'auto'}`}
             onPress={() => {
                 props.handlePress()
             }}

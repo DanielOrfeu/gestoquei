@@ -17,7 +17,7 @@
     "ios": {
       "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true,
-      "bundleIdentifier": "com.gestoquei",
+      "bundleIdentifier": "com.gestoquei"
     },
     "android": {
       "googleServicesFile": "./google-services.json",
@@ -42,6 +42,11 @@
           }
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "76ae7945-106d-47fb-97e9-523997ef92e6"
+      }
+    }
   }
 }

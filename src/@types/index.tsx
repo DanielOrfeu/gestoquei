@@ -13,7 +13,7 @@ export enum AuthErrorTypes {
     'auth/invalid-disabled-field' = 'O valor fornecido para a propriedade do usuário disabled é inválido. Precisa ser um valor booleano.',
     'auth/invalid-display-name' = 'O valor fornecido para a propriedade do usuário displayName é inválido. Precisa ser uma string não vazia.',
     'auth/invalid-dynamic-link-domain' = 'O domínio de link dinâmico fornecido não está configurado ou autorizado para o projeto atual.',
-    'auth/invalid-email' = 'O valor fornecido para a propriedade do usuário email é inválido. Precisa ser um endereço de e-mail de string.',
+    'auth/invalid-email' = 'O e-mail parece ser inválido ou inexistente.',
     'auth/invalid-email-verified' = 'O valor fornecido para a propriedade do usuário emailVerified é inválido. Precisa ser um valor booleano.',
     'auth/invalid-hash-algorithm' = 'O algoritmo de hash precisa corresponder a uma das strings na lista de algoritmos compatíveis.',
     'auth/invalid-hash-block-size' = 'O tamanho do bloco de hash precisa ser um número válido.',
@@ -57,6 +57,6 @@ export enum AuthErrorTypes {
     'auth/wrong-password' =  'A senha está inválida, ou o usuário não possui uma senha cadastrada',
     'auth/weak-password' = 'A senha deve conter ao menos 6 caracteres',
     'auth/email-already-in-use' = 'O e-mail informado já está cadastrado',
-
+    'auth/network-request-failed' = 'Houve um problema na requisição. Por favor, tente novamente.',
     'auth/passwords-not-match' = 'As senhas devem ser iguais!',
 }

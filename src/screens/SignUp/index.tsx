@@ -1,125 +1,88 @@
-
-// import { useEffect, useState } from 'react'
-// import { Button, Form, H1, H4, Spinner, Text, YStack } from 'tamagui'
-// import { LogIn } from '@tamagui/lucide-icons'
-// import { Alert, TouchableOpacity } from 'react-native'
-// import ActionBtn from '../../components/Button'
-// import FormInput from '../../components/FormInput'
-// import UserService from '../../services/User/index'
-// import { useNavigation } from '@react-navigation/native'
-// import { AuthErrorTypes } from '../../@types'
-
-// export default function SignUp() {
-//     const navigation =  useNavigation()
-
-//     const [email, setemail] = useState()
-//     const [password, setpassword] = useState()
-//     const [confirmPassword, setconfirmPassword] = useState()
-//     const [loading, setloading] = useState<boolean>(false)
-
-//     useEffect(() => {
-//         if (navigation.getState().routes[1]?.params?.email){
-//             setemail(navigation.getState().routes[1]?.params?.email)
-//         }
-//     }, []);
-
-//     return (
-//         <YStack f={1} w={'100%'} jc="center" ai="center" bg="#0085FF" gap={20}>
-//               <Form
-//                 alignItems="center"
-//                 w={'85%'}
-//                 onSubmit={() => {}}
-//                 borderWidth={1}
-//                 borderRadius="$4"
-//                 backgroundColor="#efefef"
-//                 borderColor="#efefef"
-//                 padding="$6"
-//                 gap={20}
-//               >
-//                 <H4 color={"#0085FF"}>Área de Cadastro</H4>
-//                 <FormInput 
-//                     ph={'Seu email'} 
-//                     value={email} 
-//                     handleChangeText={(t) => {
-//                         setemail(t)
-//                     }}
-//                 />
-//                 <FormInput 
-//                     isPassword
-//                     ph={'Sua senha'} 
-//                     value={password} 
-//                     handleChangeText={(t) => {
-//                         setpassword(t)
-//                     }}
-//                 />
-//                 <FormInput 
-//                     isPassword
-//                     ph={'Confirme sua senha'} 
-//                     value={confirmPassword} 
-//                     handleChangeText={(t) => {
-//                         setconfirmPassword(t)
-//                     }}
-//                 />
-//                 <Form.Trigger gap={8}>
-//                     {
-//                         loading
-//                         ? <Spinner
-//                             size='large'
-//                             color='#0085FF'
-//                         />
-//                         : <>
-//                             <ActionBtn 
-//                                 disabled={!(email && password && confirmPassword)}
-//                                 text={'Criar conta'} 
-//                                 btnColor={'#04C900'}
-//                                 action={'signup'}
-//                                 handlePress={async () => {
-//                                     setloading(true)
-//                                     await UserService.SignUp(email, password, confirmPassword)
-//                                     .then((_) => {
-//                                         Alert.alert('','Usuário cadastrado com sucesso')
-//                                     })
-//                                     .catch((err) => {
-//                                         Alert.alert('Erro ao criar usuário!', AuthErrorTypes[err.code] || err.code || {err})
-//                                         setloading(false)
-//                                     })
-//                                 }}
-//                             />
-//                             <ActionBtn 
-//                                 text={'Voltar'} 
-//                                 btnColor={'grey'}
-//                                 action={'back'}
-//                                 handlePress={() => {
-//                                     navigation.goBack()
-//                                 }}
-//                             />
-//                         </>
-//                     }
-//                 </Form.Trigger>
-//             </Form>
-//         </YStack>
-//     );
-// }
-
 import { useNavigation } from "@react-navigation/native";
-import { Text, TouchableOpacity, View } from "react-native";
-
+import { Alert, Text, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import Input from "../../components/Input";
+import BackButton from "../../components/BackButton";
+import ActionBtn from "../../components/ActionBtn";
+import UserService from "../../services/User";
+import { AuthErrorTypes } from "../../@types";
+import Loading from "../../components/Loading";
 
 export default function SignUp() {
     const navigation =  useNavigation<any>()
-
+    const [email, setemail] = useState<string>('')
+    const [password, setpassword] = useState<string>('')
+    const [confirmpassword, setconfirmpassword] = useState<string>('')
+    const [loading, setloading] = useState<boolean>(false)
+    
     return (
-        <View className="flex-1 w-full items-center justify-center">
-            <Text>
-                SignUp component
-            </Text>
-        <TouchableOpacity
-            onPress={() => {
-              navigation.goBack()
-            }}
-        >
-            <Text>voltar</Text>
-        </TouchableOpacity>
+        <View className="flex-1 w-full items-center bg-primary">
+            <BackButton home/>
+            <View className="flex-1 justify-center">
+                <Text className="text-white font-bold text-3xl">
+                    Nova conta
+                </Text>
+            </View>
+            <View className="p-4 bg-white w-full h-4/6 rounded-t-3xl items-center justify-start">
+                <Input
+                    labelName="E-mail"
+                    text={email}
+                    changeText={(e) => {
+                        setemail(e)
+                    }}
+                />
+                <Input
+                    labelName="Senha"
+                    text={password}
+                    isPassword
+                    changeText={(e) => {
+                        setpassword(e)
+                    }}
+                />
+                <Input
+                    labelName="Confirmar senha"
+                    text={confirmpassword}
+                    isPassword
+                    changeText={(e) => {
+                        setconfirmpassword(e)
+                    }}
+                />
+                <View className="w-full flex-1 items-center justify-center">
+                    {
+                        loading
+                        ? <Loading/>
+                        : <>
+                            <ActionBtn 
+                                full
+                                disabled={!confirmpassword || !password || !email}
+                                text={"Criar conta"} 
+                                color={""} 
+                                handlePress={async () => {
+                                    setloading(true)
+                                    await UserService.SignUp(email, password, confirmpassword)
+                                    .then((res) => {
+                                        Alert.alert('Sucesso!', 'Conta criada com suceddo. Bem-vindo!')
+                                    })
+                                    .catch((err) => {
+                                        setloading(false)
+                                        Alert.alert('Erro ao criar conta!', AuthErrorTypes[err.code] || err.code)
+                                    })
+                                }}                 
+                            />
+                            <View className="mt-10 flex-row p-2 items-center justify-center">
+                                <Text className="text-black font-regular text-lg">Já possui conta?</Text>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        navigation.navigate('Login')
+                                    }}
+                                >
+                                    <Text className='text-primary font-semibold ml-2 text-lg'>Entrar</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </>
+                    }
+                </View>
+            </View>
         </View>
     );
 }

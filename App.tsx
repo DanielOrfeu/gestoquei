@@ -40,7 +40,7 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView className='bg-slate-200 flex flex-1 w-full'>
+    <SafeAreaView className='flex flex-1 w-full bg-white'>
       <Routes/>
     </SafeAreaView>
   )

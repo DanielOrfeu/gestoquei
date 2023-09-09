@@ -1,8 +1,7 @@
 import auth from '@react-native-firebase/auth'
 import { Alert } from 'react-native'
 import { AuthErrorTypes } from '../../@types'
-
-
+import firestore from '@react-native-firebase/firestore';
 export default class UserService {
     static async Login(email, pass) {
         return auth()
@@ -29,6 +28,14 @@ export default class UserService {
     static async Logout(){
         return auth()
         .signOut()
+    }
+
+    static async EditUser(name){
+        return auth()
+        .currentUser
+        .updateProfile({
+            displayName: name,
+        })
     }
 }
 
