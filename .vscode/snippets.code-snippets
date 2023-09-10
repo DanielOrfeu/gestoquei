@@ -7,7 +7,7 @@
 			"\n",
 			"export default function $1() {",
 			"    return (",
-			"        <View className=\"bg-slate-500 flex-1 w-full\">",
+			"        <View className=\"flex-1 w-full justify-center items-center\">",
 			"            <Text>",
 			"                $1 component",
 			"            </Text>",

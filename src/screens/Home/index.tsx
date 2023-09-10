@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import ActionBtn from "../../components/ActionBtn";
+import ActionButton from "../../components/Button/ActionButton";
 import { useNavigation } from "@react-navigation/native";
 
 
@@ -12,7 +12,7 @@ export default function Home() {
                 Gestoquei
             </Text>         
             <View className="flex-1"/>      
-            <ActionBtn 
+            <ActionButton 
                 text={"Cadastre-se"} 
                 color={"bg-secundary"} 
                 full

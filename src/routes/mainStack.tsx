@@ -22,6 +22,7 @@ export default function MainStack() {
             tabBarStyle: {
                 backgroundColor: '#0085FF',
                 marginHorizontal: 10,
+                marginBottom: 10,
                 borderRadius: 50,
                 height: 70,
             }
@@ -37,9 +38,6 @@ export default function MainStack() {
             <Tab.Screen
                 name='Main'
                 component={Main}
-                options={{
-                    
-                }}
             />
             <Tab.Screen
                 name='Product'
@@ -86,9 +84,9 @@ const menuIcon = (route, focused) => {
     }
 
   return (
-    <View className='flex items-center justify-center rounded-full p-3 shadow bg-cyan-400'>
+    <>
         {icon}
-    </View>
+    </>
   )
 
 }

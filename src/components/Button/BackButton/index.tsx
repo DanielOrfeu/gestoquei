@@ -9,7 +9,7 @@ interface OwnProps {
 
 type Props = OwnProps
 
-export default function (props: Props) {
+export default function BackButton(props: Props) {
     const navigation =  useNavigation<any>()
 
     return (
@@ -21,7 +21,7 @@ export default function (props: Props) {
                         : navigation.goBack()
                 }}
             >
-                <IconS.ChevronLeftIcon color={colors['primary']} size={25}/>
+                <IconS.ChevronLeftIcon color={'#0085FF'} size={25}/>
             </TouchableOpacity>
         </View>
     );

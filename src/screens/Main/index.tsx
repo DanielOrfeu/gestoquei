@@ -1,17 +1,18 @@
-import { Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import UserService from "../../services/User";
-import React from "react";
-import { useUserStore } from "../../store/UserStore";
-import ActionBtn from "../../components/ActionBtn";
+import React, { useState } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
 import * as IconS from 'react-native-heroicons/solid'
-import colors from "tailwindcss/colors";
+import UserService from "../../services/User";
+import { useUserStore } from "../../store/UserStore";
+import ActionButton from "../../components/Button/ActionButton";
+import AddModal from "../../components/Modal/AddModal";
 
 
 export default function Main() {
     const [user] = useUserStore((state) => [
         state.user,
     ])
+
+    const [isOpened, setisOpened] = useState<boolean>(false);
 
     return (
         <View className="flex flex-1 w-full items-center p-6">
@@ -21,21 +22,27 @@ export default function Main() {
                         UserService.Logout()
                     }}
                 >
-                    <IconS.ArrowLeftOnRectangleIcon size={30}/>
+                    <IconS.ArrowLeftOnRectangleIcon size={30} color={'#0085FF'}/>
                 </TouchableOpacity>
             </View>
             <Text className="text-2xl self-start font-semibold">
                 Olá, { user.displayName || user.email }
             </Text>
             <View className="flex-1 justify-end w-full">
-                <ActionBtn
+                <ActionButton
                     text={"Adicionar"} 
                     color={"bg-secundary"}
                     handlePress={() => {
-                        console.log({user})
+                        setisOpened(true)
                     }}
                 />
             </View>
+            <AddModal 
+                isVisible={isOpened} 
+                closeModal={() => {
+                  setisOpened(false)
+                }}            
+            />
         </View>
     );
 }

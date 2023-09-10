@@ -2,8 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 import { useState } from "react";
 import Input from "../../components/Input";
-import BackButton from "../../components/BackButton";
-import ActionBtn from "../../components/ActionBtn";
+import BackButton from "../../components/Button/BackButton";
+import ActionButton from "../../components/Button/ActionButton";
 import UserService from "../../services/User";
 import { AuthErrorTypes } from "../../@types";
 import Loading from "../../components/Loading";
@@ -52,7 +52,7 @@ export default function SignUp() {
                         loading
                         ? <Loading/>
                         : <>
-                            <ActionBtn 
+                            <ActionButton 
                                 full
                                 disabled={!confirmpassword || !password || !email}
                                 text={"Criar conta"} 

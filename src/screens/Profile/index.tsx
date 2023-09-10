@@ -2,7 +2,7 @@ import { Alert, Text, View } from "react-native";
 import Input from "../../components/Input";
 import { useEffect, useState } from "react";
 import { useUserStore } from "../../store/UserStore";
-import ActionBtn from "../../components/ActionBtn";
+import ActionButton from "../../components/Button/ActionButton";
 import UserService from "../../services/User";
 import { AuthErrorTypes } from "../../@types";
 import Loading from "../../components/Loading";
@@ -26,6 +26,15 @@ export default function Profile() {
             setname(user.displayName)
         }
     }, []);
+
+    useEffect(() => {
+        if (user.email) {
+            setemail(user.email)
+        }
+        if (user.displayName) {
+            setname(user.displayName)
+        }
+    }, [user]);
 
     return (
         <View className="flex-1 w-full items-center justify-center p-6">
@@ -54,27 +63,25 @@ export default function Profile() {
                         ? <Loading/>
                         : isEditing
                             ? <>
-                                <ActionBtn 
+                                <ActionButton 
                                     text={"Salvar"} 
                                     disabled={!email || !isEditing}
                                     handlePress={async () => {
                                         setloading(true)
                                         await UserService.EditUser(name)
                                         .then(async (res) => {
-                                        Alert.alert('Sucesso', 'Perfil editado com sucesso')
-                                        setemail(user.email)
-                                        setname(user.displayName)
-                                        setisEditing(false)
+                                            Alert.alert('Sucesso', 'Perfil editado com sucesso')
+                                            setisEditing(false)
                                         })
                                         .catch((err) => {
-                                            Alert.alert('Erro ao logar!', AuthErrorTypes[err.code] || err.code)
+                                            Alert.alert('Erro ao editar!', AuthErrorTypes[err.code] || err.code)
                                         })
                                         .finally(() => {
                                             setloading(false)
                                         })
                                     }}            
                                 />
-                                <ActionBtn 
+                                <ActionButton 
                                     text={"Cancelar"} 
                                     color="bg-red-500"
                                     handlePress={() => {
@@ -84,7 +91,7 @@ export default function Profile() {
                                     }}            
                                 />
                             </>
-                            : <ActionBtn 
+                            : <ActionButton 
                                 text={"Editar"} 
                                 handlePress={() => {
                                     setisEditing(true)

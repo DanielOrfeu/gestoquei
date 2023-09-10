@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 import * as IconS from 'react-native-heroicons/solid'
 import Input from "../../components/Input";
-import BackButton from "../../components/BackButton";
-import ActionBtn from "../../components/ActionBtn";
+import BackButton from "../../components/Button/BackButton";
+import ActionButton from "../../components/Button/ActionButton";
 import UserService from "../../services/User";
 import { AuthErrorTypes } from "../../@types";
 import Loading from "../../components/Loading";
@@ -41,7 +41,7 @@ export default function Login() {
                     }}
                 />
                 <TouchableOpacity
-                    className="self-start ml-2"
+                    className="self-end mr-2"
                     disabled={!email}
                     onPress={async () => {
                         setloading(true)
@@ -70,7 +70,7 @@ export default function Login() {
                         loading 
                         ? <Loading/>
                         : <>
-                            <ActionBtn 
+                            <ActionButton 
                                 full
                                 disabled={!password || !email}
                                 text={"Login"} 
@@ -88,8 +88,8 @@ export default function Login() {
                                 Ou
                             </Text>
                             <View className="flex-row gap-8">
-                                <IconS.SunIcon/>
-                                <IconS.UserIcon/>
+                                <IconS.SunIcon color={'#0085FF'}/>
+                                <IconS.UserIcon color={'#0085FF'}/>
                             </View>
                             <View className="mt-10 flex-row p-2 items-center justify-center">
                                 <Text className="text-black font-regular text-lg">Não possui conta?</Text>
